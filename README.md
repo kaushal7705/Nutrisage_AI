@@ -1,88 +1,191 @@
 # NutriSage AI 🥗
+
 ### Intelligent Personalized Health & Nutrition Assistant
 
-NutriSage AI is a premium, modular Web Application designed for personalized wellness. It integrates mathematical physiological calculators, a custom calorie-calibrated Indian meal planner, and an intelligent AI Nutrition Coach that references verified health guidelines to provide grounded, evidence-based answers.
+NutriSage AI is an AI-powered health and nutrition platform designed to support healthier lifestyle choices through personalized physiological analysis, intelligent meal planning, and evidence-based nutrition guidance.
+
+The platform combines health metric calculations, customized Indian meal recommendations, and an AI Nutrition Coach powered by Retrieval-Augmented Generation (RAG) to deliver reliable and grounded nutritional insights.
 
 ---
 
-## 🚀 Getting Started
+## 🌍 SDG Alignment
 
-### 1. Prerequisites
-- **Python**: Version 3.9, 3.10, or 3.11 is recommended.
-- **Google AI Studio API Key**: Required for RAG synthesis.
+### SDG 3: Good Health & Well-Being
 
-### 2. Environment Setup
+NutriSage AI contributes to the United Nations Sustainable Development Goal 3 by:
 
-Clone or navigate to the project directory and create a virtual environment:
-
-```bash
-# Create virtual environment
-python -m venv .venv
-
-# Activate virtual environment
-# On Windows (Command Prompt/PowerShell):
-.\.venv\Scripts\activate
-
-# On macOS/Linux:
-source .venv/bin/activate
-```
-
-Install the required packages:
-
-```bash
-pip install -r requirements.txt
-```
-
-### 3. Configuration
-
-1. Copy the `.env.template` file to `.env`:
-   ```bash
-   cp .env.template .env
-   ```
-2. Open `.env` and enter your Google AI Studio Gemini API key:
-   ```env
-   GEMINI_API_KEY=yourActualKeyHere...
-   ```
-   *Note: If the key is not set in `.env`, you can also input it directly in the app's sidebar during execution.*
-
-### 4. Running the Dashboard
-
-Launch the Streamlit app:
-
-```bash
-streamlit run src/app.py
-```
-
-The app will open automatically in your browser at `http://localhost:8501`.
+* Promoting nutrition awareness
+* Supporting preventive healthcare
+* Encouraging healthier dietary habits
+* Providing evidence-based nutrition guidance
+* Making personalized wellness assistance more accessible
 
 ---
 
-## 🛠️ Project Architecture
+## 🚀 Key Features
+
+### 📊 Health Assessment
+
+Calculate essential physiological metrics:
+
+* Body Mass Index (BMI)
+* Basal Metabolic Rate (BMR)
+* Total Daily Energy Expenditure (TDEE)
+* Healthy weight recommendations
+
+The system helps users understand their nutritional requirements based on personal characteristics and activity levels.
+
+---
+
+### 🍽️ Personalized Indian Meal Planner
+
+Generate customized meal plans based on:
+
+* Weight Loss
+* Weight Maintenance
+* Weight Gain
+
+Supports:
+
+* Vegetarian Diets
+* Non-Vegetarian Diets
+
+Features:
+
+* Daily calorie targets
+* Macronutrient allocation
+* Meal-wise recommendations
+* Protein estimates
+* Indian dietary preferences
+
+---
+
+### 🤖 AI Nutrition Coach
+
+An intelligent conversational assistant that:
+
+* Answers nutrition-related questions
+* Uses verified nutrition guidelines
+* Provides evidence-grounded responses
+* Reduces misinformation by retrieving information from trusted reference documents
+
+Example Questions:
+
+* How can I gain healthy weight?
+* What are the best vegetarian protein sources?
+* How much protein should I consume daily?
+* What is a balanced Indian diet?
+
+---
+
+## 🧠 AI & RAG Pipeline
+
+NutriSage AI uses Retrieval-Augmented Generation (RAG) to provide grounded nutrition guidance.
+
+Workflow:
+
+```text
+User Question
+      ↓
+Document Retrieval
+      ↓
+ChromaDB Vector Search
+      ↓
+Relevant Nutrition Context
+      ↓
+Google Gemini
+      ↓
+Grounded Response
+```
+
+This approach helps reduce hallucinations and ensures answers are based on trusted nutrition resources.
+
+---
+
+## 🛠️ Technology Stack
+
+### Frontend
+
+* Streamlit
+
+### Backend
+
+* Python
+
+### AI & RAG
+
+* Google Gemini API
+* LangChain
+* ChromaDB
+* Sentence Transformers
+
+### Data Processing
+
+* PDF Parsing
+* Text Chunking
+* Vector Embeddings
+
+### Visualization
+
+* Plotly
+* Streamlit Components
+
+---
+
+## 📂 Project Architecture
 
 ```text
 nutrisage-ai/
 ├── data/
-│   ├── raw_documents/        # Upload your nutrition PDFs here
-│   └── vector_db/            # Local SQLite/ChromaDB persistence directory
+│   ├── raw_documents/
+│   └── vector_db/
+│
 ├── src/
 │   ├── __init__.py
-│   ├── config.py             # App-wide paths, model specifications, & environmental variables
-│   ├── health_utils.py       # Mathematical calculators (BMI, BMR, TDEE)
-│   ├── meal_planner.py       # Macro breakdowns and custom meal templates
-│   ├── rag_engine.py         # PDF parsing, ChromaDB, and Google AI Studio Gemini QA chains
-│   └── app.py                # Streamlit UI design, graphs, and chat views
+│   ├── config.py
+│   ├── health_utils.py
+│   ├── meal_planner.py
+│   ├── rag_engine.py
+│   └── app.py
+│
+├── requirements.txt
+├── .env
+└── README.md
 ```
 
 ---
 
-## 📖 Features
+## 📖 Knowledge Sources
 
-1. **Health Assessment**: Inputs your age, gender, height, weight, and activity level to compute:
-   - **BMI** (Body Mass Index) with health category classifications.
-   - **BMR** (Basal Metabolic Rate) using the Mifflin-St Jeor equation.
-   - **TDEE** (Total Daily Energy Expenditure) to define your active daily caloric requirements.
-2. **Meal Planner**: Adjusts TDEE daily requirements for Weight Loss, Maintenance, or Weight Gain, generates carbohydrate, protein, and fat allocations, and outputs daily food suggestions (Breakfast, Lunch, Snacks, Dinner) for Vegetarian or Non-Vegetarian choices.
-3. **AI Nutrition Coach**:
-   - Analyzes guidelines in real-time to answer queries.
-   - Refers to verified local guides (like the ICMR-NIN 2024 Dietary Guidelines) to synthesize grounded, evidence-based responses.
-   - Provides verified citations with every answer to ensure safety and precision.
+The AI Nutrition Coach references trusted nutrition resources such as:
+
+* ICMR-NIN Dietary Guidelines
+* Nutrition and Wellness Reference PDFs
+* Evidence-based dietary recommendations
+
+---
+
+## 🔮 Future Enhancements
+
+* Nutrition progress tracking
+* Food image recognition
+* Personalized fitness recommendations
+* Mobile application support
+* Multi-language support
+* Advanced analytics dashboard
+
+---
+
+## 👨‍💻 Author
+
+**Kaushal Namade**
+
+B.Tech CSE (Data Science)
+
+IPS Academy, Indore
+
+---
+
+## 📜 Disclaimer
+
+NutriSage AI is intended for educational and wellness guidance purposes only. It is not a substitute for professional medical advice, diagnosis, or treatment.
