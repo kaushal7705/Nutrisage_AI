@@ -1,0 +1,21 @@
+# Virtual environment
+.venv/
+venv/
+ENV/
+
+# Environment variables (sensitive API keys)
+.env
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Local database and cache directories
+data/vector_db/
+data/vector_db_metadata.json
+
+# Operating System files
+.DS_Store
+Thumbs.db
